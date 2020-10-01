@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Департамент</title>
+</head>
+<body>
+<h1>Зарегистрированый департамент</h1>
+<table>
+    <tr>
+        <td>Сумма пополнения (списания)</td>
+        <td>Валюта</td>
+        <td>Комментарий</td>
+        <td>Дата созданий</td>
+        <td>Редактирование</td>
+        <td>Удаление</td>
+    </tr>
+    <tr>
+        <td>{{ expenses_add.amount }}</td>
+        <td>{{ expenses_add.currency }}</td>
+        <td>{{ expenses_add.comment }}</td>
+        <td>{{ expenses_add.date_created }}</td>
+        <td><a href="{% url 'expenses_list_edit' expenses_add.id %}">Редактировать</a></td>
+        <td><a href="{% url 'delete_expenses' expenses_add.id %}">Удалить</a></td>
+    </tr>
+</table>
+<a href="{% url 'company_expenses_list' %}">Вернутся к листу</a>
+</body>
+</html>

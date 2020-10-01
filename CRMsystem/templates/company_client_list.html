@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Лист клиентов</title>
+</head>
+<body>
+<div class = post_department_company>
+<table>
+<h1>Лист клиентов</h1>
+    <tr>
+        <td>Компания </td>
+        <td>Активность </td>
+        <td>Логин </td>
+        <td>Пароль </td>
+        <td>Електронная почта </td>
+        <td>Дата регистрации </td>
+        <td>Дата последней авторизации </td>
+        <td>Язык </td>
+        <td>Имя </td>
+        <td>Фамилия </td>
+        <td>Аватар </td>
+        <td>Список документов </td>
+        <td>Ведущий агент </td>
+        <td>Ставка агента </td>
+        <td>Сумма для ведущего агента </td>
+        <td>Человек какой привел клиента </td>
+        <td>Ставка этого человека |</td>
+        <td>Сумма для этого человека </td>
+        <td>Редактирование</td>
+        <td>Удаление</td>
+    </tr>
+    {% for CompanyClientList in all_client_object %}
+    <tr>
+        <td>{{ CompanyClientList.company }}</td>
+        <td>{{ CompanyClientList.is_active }}</td>
+        <td>{{ CompanyClientList.username }}</td>
+        <td>{{ CompanyClientList.password }}</td>
+        <td>{{ CompanyClientList.email }}</td>
+        <td>{{ CompanyClientList.data_joined }}</td>
+        <td>{{ CompanyClientList.last_login }}</td>
+        <td>{{ CompanyClientList.language }}</td>
+        <td>{{ CompanyClientList.first_name }}</td>
+        <td>{{ CompanyClientList.last_name }}</td>
+        <td><img src="{{ CompanyClientList.avatar.url }}" alt="{{ CompanyClientList.company }}"></td>
+        <td>{{ CompanyClientList.doc_list }}</td>
+        <td>{{ CompanyClientList.employer_lead }}</td>
+        <td>{{ CompanyClientList.get_employer_lead_type_display }}</td>
+        <td>{{ CompanyClientList.employer_lead_amount }}</td>
+        <td>{{ CompanyClientList.employer }}</td>
+        <td>{{ CompanyClientList.get_employer_type_display }}</td>
+        <td>{{ CompanyClientList.employer_amount }}</td>
+        <td><a href="{% url 'client_list_edit' CompanyClientList.id %}">Редактировать</a></td>
+        <td><a href="{% url 'delete_client' CompanyClientList.id %} ">Удалить</a></td>
+    </tr>
+    {% endfor %}
+</table>
+</div>
+<a href="{% url 'company_client' %}">Добавить клиента</a>
+<a href="{% url 'index' %}">На главную</a>
+</body>
+</html>

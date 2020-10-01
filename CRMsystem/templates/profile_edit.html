@@ -1,0 +1,15 @@
+<html lang="en">
+<head>
+    <title>Редактирование данных</title>
+</head>
+<body>
+<h1>Редактирование</h1>
+<form id="add_form" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <ul>
+        {{ form_registration.as_ul }}
+    </ul>
+<button form="add_form" type="submit">Добавить</button>
+</form>
+</body>
+</html>

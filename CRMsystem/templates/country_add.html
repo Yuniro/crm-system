@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Страны</title>
+</head>
+<body>
+<h1>Зарегистрированая страна</h1>
+<table>
+    <tr>
+        <td>id страны</td>
+        <td>Название страны</td>
+        <td>Телефонный код страны</td>
+        <td>Валюта страны</td>
+        <td>Временная зона страны</td>
+        <td>Редактирование</td>
+        <td>Удаление</td>
+    </tr>
+    <tr>
+        <td>{{ country_add.country }}</td>
+        <td>{{ country_add.name }}</td>
+        <td>{{ country_add.code }}</td>
+        <td>{{ country_add.currency }}</td>
+        <td>{{ country_add.time_zone }}</td>
+        <td><a href="{% url 'country_list_edit' country_add.id %}">Редактировать</a></td>
+        <td><a href="{% url 'delete_country' country_add.id %}">Удалить</a></td>
+    </tr>
+</table>
+<a href="{% url 'company_country_list' %}">Вернутся к листу</a>
+</body>
+</html>

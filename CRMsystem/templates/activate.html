@@ -1,0 +1,3 @@
+Someone send accept for email {{ user.email }}. Follow the link below:
+{{ protocol }}://{{ domain }}{% url "accept_done" code token pk%}
+Your username, in case you've forgotten: {{ user.username }}

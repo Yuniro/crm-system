@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Компания</title>
+</head>
+<body>
+<h1>Зарегистрированая компания</h1>
+<table>
+    <tr>
+        <td>id</td>
+        <td>Название компании</td>
+        <td>Описание компании</td>
+        <td>Домен компании</td>
+        <td>Лого компании</td>
+        <td>Редактирование</td>
+        <td>Удаление</td>
+    </tr>
+    <tr>
+    <td>{{ company_add.id }}</td>
+    <td>{{ company_add.name }}</td>
+    <td>{{ company_add.description }}</td>
+    <td>{{ company_add.domains }}</td>
+    <td><img src="{{company_add.logo.url}}" alt="{{ company_add.name }}"></td>
+    <td><a href="{% url 'company_list_edit' pk %}">Редактировать</a> </td>
+    <td><a href="{% url 'delete_company' pk%}">Удалить</a> </td>
+    </tr>
+</table>
+<a href="{% url 'company_list' %}">Вернутся к листу</a>
+</body>
+</html>

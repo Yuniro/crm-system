@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Лист обмена курса валют</title>
+</head>
+<body>
+<div class = post_department_company>
+<table>
+<h1>Лист обмена курса валют</h1>
+    <tr>
+        <td>Наименование валюты </td>
+        <td>Ставка</td>
+        <td>Дата операции</td>
+        <td>Редактирование</td>
+        <td>Удаление</td>
+    </tr>
+    {% for CompanyExchangeRateList in all_exchange_rate_object %}
+    <tr>
+        <td>{{ CompanyExchangeRateList.currency }}</td>
+        <td>{{ CompanyExchangeRateList.rate }}</td>
+        <td>{{ CompanyExchangeRateList.date_created }}</td>
+        <td><a href="{% url 'exchange_rate_list_edit' CompanyExchangeRateList.id %}">Редактировать</a></td>
+        <td><a href="{% url 'delete_exchange_rate' CompanyExchangeRateList.id %} ">Удалить</a></td>
+    </tr>
+    {% endfor %}
+</table>
+</div>
+<a href="{% url 'company_exchange_rate' %}">Добавить валюту</a>
+<a href="{% url 'index' %}">На главную</a>
+</body>
+</html>

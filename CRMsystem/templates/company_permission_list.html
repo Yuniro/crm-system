@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Лист прав доступа</title>
+</head>
+<body>
+<div class = post_department_company>
+<table>
+<h1>Лист прав доступа</h1>
+    <tr>
+        <td>Название права</td>
+        <td>описание права</td>
+    </tr>
+    {% for CompanyPermissionList in all_permission_object %}
+    <tr id="permission_list">
+        <td>{{ CompanyPermissionList.0 }}</td>
+        <td>{{ CompanyPermissionList.1 }}</td>
+    </tr>
+    {% endfor %}
+</table>
+</div>
+<a href="{% url 'index' %}">На главную</a>
+</body>
+</html>

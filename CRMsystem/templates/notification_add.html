@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Новости</title>
+</head>
+<body>
+<h1>Зарегистрированая новая новость</h1>
+<table>
+    <tr>
+        <td>Компания</td>
+        <td>Пользователь</td>
+        <td>Список електронных почт</td>
+        <td>Список телефонных номеров</td>
+        <td>Событие</td>
+        <td>Время уведомления</td>
+        <td>Редактирование</td>
+        <td>Удаление</td>
+    </tr>
+    <tr>
+        <td>{{ notification_add.company }}</td>
+        <td>{{ notification_add.user }}</td>
+        <td>{{ notification_add.email_list }}</td>
+        <td>{{ notification_add.phone_list }}</td>
+        <td>{{ notification_add.event }}</td>
+        <td>{{ notification_add.event_time }}</td>
+        <td><a href="{% url 'notification_list_edit' notification_add.id %}">Редактировать</a></td>
+        <td><a href="{% url 'delete_notification' notification_add.id %}">Удалить</a></td>
+    </tr>
+</table>
+<a href="{% url 'company_notification_list' %}">Вернутся к листу</a>
+</body>
+</html>

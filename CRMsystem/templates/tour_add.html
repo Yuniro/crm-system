@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Тур</title>
+</head>
+<body>
+<h1>Зарегистрированый тур</h1>
+<table>
+    <tr>
+        <td>Компания </td>
+        <td>Главный клиент (ответственный за тур)</td>
+        <td>Список клиентов</td>
+        <td>Название тура</td>
+        <td>Стоимость тура</td>
+        <td>Валюта</td>
+        <td>Курс валюты в момент оплаты</td>
+        <td>Количество путешественников</td>
+        <td>Статус тура</td>
+        <td>Дата начала тура</td>
+        <td>Дата окончания тура</td>
+        <td>Редактирование</td>
+        <td>Удаление</td>
+    </tr>
+    <tr>
+        <td>{{ tour_add.company }}</td>
+        <td>{{ tour_add.client }}</td>
+        <td>{{ tour_add.client_list }}</td>
+        <td>{{ tour_add.name }}</td>
+        <td>{{ tour_add.price }}</td>
+        <td>{{ tour_add.currency }}</td>
+        <td>{{ tour_add.exchange_rate }}</td>
+        <td>{{ tour_add.member_count }}</td>
+        <td>{{ tour_add.status }}</td>
+        <td>{{ tour_add.created_date }}</td>
+        <td>{{ tour_add.finished_date }}</td>
+        <td><a href="{% url 'tour_list_edit' tour_add.id %}">Редактировать</a></td>
+        <td><a href="{% url 'delete_tour' tour_add.id %}">Удалить</a></td>
+    </tr>
+</table>
+<a href="{% url 'company_tour_list' %}">Вернутся к листу</a>
+</body>
+</html>

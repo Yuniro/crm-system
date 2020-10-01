@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Редактирование данных страны</title>
+</head>
+<body>
+<form id="add_form" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <ul>
+        {{ form_country.as_ul }}
+    </ul>
+<button form="add_form" type="submit">Редактировать</button>
+</form>
+</body>

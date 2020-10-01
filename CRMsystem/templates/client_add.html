@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Клиенты</title>
+</head>
+<body>
+<h1>Зарегистрированые клиенты</h1>
+<table>
+        <tr>
+        <td>Компания </td>
+        <td>Активность </td>
+        <td>Логин </td>
+        <td>Пароль </td>
+        <td>Електронная почта </td>
+        <td>Дата регистрации </td>
+        <td>Дата последней авторизации </td>
+        <td>Язык </td>
+        <td>Имя </td>
+        <td>Фамилия </td>
+        <td>Аватар </td>
+        <td>Список документов </td>
+        <td>Ведущий агент </td>
+        <td>Ставка агента </td>
+        <td>Сумма для ведущего агента </td>
+        <td>Человек какой привел клиента </td>
+        <td>Ставка этого человека |</td>
+        <td>Сумма для этого человека </td>
+        <td>Редактирование</td>
+        <td>Удаление</td>
+    </tr>
+    <tr>
+        <td>{{ client_add.company }}</td>
+        <td>{{ client_add.is_active }}</td>
+        <td>{{ client_add.username }}</td>
+        <td>{{ client_add.password }}</td>
+        <td>{{ client_add.email }}</td>
+        <td>{{ client_add.data_joined }}</td>
+        <td>{{ client_add.last_login }}</td>
+        <td>{{ client_add.language }}</td>
+        <td>{{ client_add.first_name }}</td>
+        <td>{{ client_add.last_name }}</td>
+        <td>{{ client_add.avatar }}</td>
+        <td>{{ client_add.doc_list }}</td>
+        <td>{{ client_add.employer_lead }}</td>
+        <td>{{ client_add.get_employer_lead_type_display }}</td>
+        <td>{{ client_add.employer_lead_amount }}</td>
+        <td>{{ client_add.employer }}</td>
+        <td>{{ client_add.get_employer_type_display }}</td>
+        <td>{{ client_add.employer_amount }}</td>
+        <td><a href="{% url 'client_list_edit' client_add.id %}">Редактировать</a></td>
+        <td><a href="{% url 'delete_client' client_add.id %}">Удалить</a></td>
+    </tr>
+</table>
+<a href="{% url 'company_client_list' %}">Вернутся к листу</a>
+</body>
+</html>

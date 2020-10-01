@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Лист туров</title>
+</head>
+<body>
+<div class = post_department_company>
+<table>
+<h1>Лист туров</h1>
+    <tr>
+        <td>Компания </td>
+        <td>Главный клиент (ответственный за тур)</td>
+        <td>Список клиентов</td>
+        <td>Название тура</td>
+        <td>Стоимость тура</td>
+        <td>Валюта</td>
+        <td>Курс валюты в момент оплаты</td>
+        <td>Количество путешественников</td>
+        <td>Статус тура</td>
+        <td>Дата начала тура</td>
+        <td>Дата окончания тура</td>
+        <td>Редактирование</td>
+        <td>Удаление</td>
+    </tr>
+    {% for CompanyTourList in all_tour_object %}
+    <tr>
+        <td>{{ CompanyTourList.company }}</td>
+        <td>{{ CompanyTourList.client }}</td>
+        <td>{{ CompanyTourList.client_list }}</td>
+        <td>{{ CompanyTourList.name }}</td>
+        <td>{{ CompanyTourList.price }}</td>
+        <td>{{ CompanyTourList.currency }}</td>
+        <td>{{ CompanyTourList.exchange_rate }}</td>
+        <td>{{ CompanyTourList.member_count }}</td>
+        <td>{{ CompanyTourList.status }}</td>
+        <td>{{ CompanyTourList.created_date }}</td>
+        <td>{{ CompanyTourList.finished_date }}</td>
+        <td><a href="{% url 'tour_list_edit' CompanyTourList.id %}">Редактировать</a></td>
+        <td><a href="{% url 'delete_tour' CompanyTourList.id %}">Удалить</a></td>
+    </tr>
+    {% endfor %}
+</table>
+</div>
+<a href="{% url 'company_tour' %}">Добавить тур</a>
+<a href="{% url 'index' %}">На главную</a>
+</body>
+</html>

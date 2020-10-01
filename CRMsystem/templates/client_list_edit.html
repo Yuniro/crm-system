@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <title>Редактирование клиента</title>
+</head>
+<body>
+<form id="add_form" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <ul>
+        {{ form_client.as_ul }}
+    </ul>
+<button form="add_form" type="submit">Редактировать</button>
+</form>
+</body>

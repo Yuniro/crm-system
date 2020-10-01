@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Сотрудники</title>
+</head>
+<body>
+<h1>Зарегистрированый сотрудник</h1>
+<table>
+    <tr>
+        <td>Компания </td>
+        <td>Активность </td>
+        <td>Владелец </td>
+        <td>Логин </td>
+        <td>Електронная почта </td>
+        <td>Дата регистрации </td>
+        <td>Дата последней авторизации </td>
+        <td>Язык </td>
+        <td>Имя </td>
+        <td>Фамилия </td>
+        <td>Паспорт </td>
+        <td>Номер телефона </td>
+        <td>Должность в компании </td>
+        <td>Права доступа </td>
+        <td>Редактирование</td>
+        <td>Удаление</td>
+    </tr>
+    <tr>
+        <td>{{ employer_add.company }}</td>
+        <td>{{ employer_add.is_active }}</td>
+        <td>{{ employer_add.is_owner }}</td>
+        <td>{{ employer_add.username }}</td>
+        <td>{{ employer_add.email }}</td>
+        <td>{{ employer_add.data_joined }}</td>
+        <td>{{ employer_add.last_login }}</td>
+        <td>{{ employer_add.language }}</td>
+        <td>{{ employer_add.first_name }}</td>
+        <td>{{ employer_add.last_name }}</td>
+        <td>{{ employer_add.passport }}</td>
+        <td>{{ employer_add.phone_number }}</td>
+        <td>{{ employer_add.department }}</td>
+        <td>{{ employer_add.permission }}</td>
+        <td><a href="{% url 'employer_list_edit' employer_add.id %}">Редактировать</a></td>
+        <td><a href="{% url 'delete_employer' employer_add.id %} ">Удалить</a></td>
+    </tr>
+</table>
+<a href="{% url 'company_employer_list' %}">Вернутся к листу</a>
+</body>
+</html>

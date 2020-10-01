@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Лист валют</title>
+</head>
+<body>
+<div class = post_department_company>
+<table>
+<h1>Лист валют</h1>
+    <tr>
+        <td>Наименование валюты </td>
+        <td>Код валюты </td>
+        <td>Знак валюты</td>
+        <td>Количество знаков после запятой </td>
+        <td>Активность валюты </td>
+        <td>Редактирование</td>
+        <td>Удаление</td>
+    </tr>
+    {% for CompanyCurrencyList in all_currency_object %}
+    <tr>
+        <td>{{ CompanyCurrencyList.name }}</td>
+        <td>{{ CompanyCurrencyList.currency }}</td>
+        <td>{{ CompanyCurrencyList.sign }}</td>
+        <td>{{ CompanyCurrencyList.fraction_digits }}</td>
+        <td>{{ CompanyCurrencyList.is_active }}</td>
+        <td><a href="{% url 'currency_list_edit' CompanyCurrencyList.id %}">Редактировать</a></td>
+        <td><a href="{% url 'delete_currency' CompanyCurrencyList.id %} ">Удалить</a></td>
+    </tr>
+    {% endfor %}
+</table>
+</div>
+<a href="{% url 'company_currency' %}">Добавить валюту</a>
+<a href="{% url 'index' %}">На главную</a>
+</body>
+</html>

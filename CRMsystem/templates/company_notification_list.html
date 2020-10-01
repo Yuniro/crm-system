@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Лист новостей</title>
+</head>
+<body>
+<div class = post_department_company>
+<table>
+<h1>Лист новостей</h1>
+    <tr>
+        <td>Компания</td>
+        <td>Пользователь</td>
+        <td>Список електронных почт</td>
+        <td>Список телефонных номеров</td>
+        <td>Событие</td>
+        <td>Время уведомления</td>
+        <td>Редактирование</td>
+        <td>Удаление</td>
+    </tr>
+    {% for CompanyNotificationList in all_notification_object %}
+    <tr>
+        <td>{{ CompanyNotificationList.company }}</td>
+        <td>{{ CompanyNotificationList.user }}</td>
+        <td>{{ CompanyNotificationList.email_list }}</td>
+        <td>{{ CompanyNotificationList.phone_list }}</td>
+        <td>{{ CompanyNotificationList.event }}</td>
+        <td>{{ CompanyNotificationList.event_time }}</td>
+        <td><a href="{% url 'notification_list_edit' CompanyNotificationList.id %}">Редактировать</a></td>
+        <td><a href="{% url 'delete_notification' CompanyNotificationList.id %}">Удалить</a></td>
+    </tr>
+    {% endfor %}
+</table>
+</div>
+<a href="{% url 'company_notification' %}">Добавить новость</a>
+<a href="{% url 'index' %}">На главную</a>
+</body>
+</html>

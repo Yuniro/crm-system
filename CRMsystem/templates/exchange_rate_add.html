@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Курс обмена валют</title>
+</head>
+<body>
+<h1>Зарегистрированая валюта</h1>
+<table>
+    <tr>
+        <td>Наименование валюты </td>
+        <td>Ставка</td>
+        <td>Дата операции</td>
+        <td>Редактирование</td>
+        <td>Удаление</td>
+    </tr>
+    <tr>
+        <td>{{ exchange_rate_add.currency }}</td>
+        <td>{{ exchange_rate_add.rate }}</td>
+        <td>{{ exchange_rate_add.date_created }}</td>
+        <td><a href="{% url 'exchange_rate_list_edit' exchange_rate_add.id %}">Редактировать</a></td>
+        <td><a href="/{% url 'delete_exchange_rate' exchange_rate_add.id%} ">Удалить</a></td>
+    </tr>
+</table>
+<a href="{% url 'company_exchange_rate_list' %}">Вернутся к листу</a>
+</body>
+</html>

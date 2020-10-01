@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Лист затрат агенства</title>
+</head>
+<body>
+<div class = post_department_company>
+<table>
+<h1>Лист затрат агенства</h1>
+    <tr>
+        <td>Сумма пополнения (списания)</td>
+        <td>Валюта</td>
+        <td>Комментарий</td>
+        <td>Дата созданий</td>
+        <td>Редактирование</td>
+        <td>Удаление</td>
+    </tr>
+    {% for company_expenses_list in all_expenses_object %}
+    <tr>
+        <td>{{ company_expenses_list.amount }}</td>
+        <td>{{ company_expenses_list.currency }}</td>
+        <td>{{ company_expenses_list.comment }}</td>
+        <td>{{ company_expenses_list.date_created }}</td>
+        <td><a href="{% url 'expenses_list_edit' company_expenses_list.id %}">Редактировать</a></td>
+        <td><a href="{% url 'delete_expenses' company_expenses_list.id %}">Удалить</a></td>
+    </tr>
+    {% endfor %}
+</table>
+</div>
+<a href="{% url 'company_expenses' %}">Добавить затрат</a>
+<a href="{% url 'index' %}">На главную</a>
+</body>
+</html>

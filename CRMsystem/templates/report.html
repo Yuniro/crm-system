@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Report</title>
+</head>
+<body>
+<table>
+    <tr>
+        <td>Logs</td>
+        <td>Time</td>
+    </tr>
+     {% for report in reports %}
+    <tr>
+        <td>{{ report.changes }}</td>
+        <td>{{ report.time }}</td>
+    </tr>
+    {% endfor %}
+</table>
+
+</body>
+</html>

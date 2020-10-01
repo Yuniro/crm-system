@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Валюты</title>
+</head>
+<body>
+<h1>Зарегистрированые валюты</h1>
+<table>
+    <tr>
+        <td>Наименование валюты </td>
+        <td>Код валюты </td>
+        <td>Знак валюты</td>
+        <td>Количество знаков после запятой </td>
+        <td>Активность валюты </td>
+        <td>Редактирование</td>
+        <td>Удаление</td>
+    </tr>
+    <tr>
+        <td>{{ currency_add.name }}</td>
+        <td>{{ currency_add.currency }}</td>
+        <td>{{ currency_add.sign }}</td>
+        <td>{{ currency_add.fraction_digits }}</td>
+        <td>{{ currency_add.is_active }}</td>
+        <td><a href="{% url 'currency_list_edit' currency_add.id %}">Редактировать</a></td>
+        <td><a href="{% url 'delete_currency' currency_add.id %} ">Удалить</a></td>
+    </tr>
+</table>
+<a href="{% url 'company_currency_list' %}">Вернутся к листу</a>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<head>
+    <title>Travel CRM</title>
+</head>
+<body>
+<div id="myid">
+    {% if user.is_authenticated %}
+        <p>Добро пожаловать, {{ user.username }}</p>
+        <a href="{% url 'profiles' user.id %}">Профиль</a>
+        <a href="{% url 'logout' %}">Выйти</a>
+    {% else %}
+    <a href="{% url 'login' %}">Авторизация</a>
+    <a href="{% url 'registration' %}">Регистрация</a>
+    {% endif %}
+</div>
+<ul>
+    <li><a href="{% url 'company_list' %}">Компания</a></li>
+    <li><a href="{% url 'company_department_list' %}">Департамент</a></li>
+    <li><a href="{% url 'company_permission_list' %}">Права доступа</a></li>
+    <li><a href="{% url 'company_employer_list' %}">Сотрудники</a></li>
+    <li><a href="{% url 'company_client_list' %}">Клиенты</a></li>
+    <li><a href="{% url 'company_currency_list' %}">Валюта</a></li>
+    <li><a href="{% url 'company_exchange_rate_list' %}">Обмен валют</a></li>
+    <li><a href="{% url 'company_payment_list' %}">Способ оплаты</a></li>
+    <li><a href="{% url 'company_expenses_list' %}">Затраты агенства</a></li>
+    <li><a href="{% url 'company_country_list' %}">Страна</a></li>
+    <li><a href="{% url 'company_tour_list' %}">Тур</a></li>
+    <li><a href="{% url 'company_notification_list' %}">Новости</a></li>
+    <li><a href="{% url 'report' %}">Отчет</a></li>
+</ul>
+</body>

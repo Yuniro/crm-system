@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Лист способов оплаты</title>
+</head>
+<body>
+<div class = post_department_company>
+<table>
+<h1>Лист способов оплаты</h1>
+    <tr>
+        <td>Актиквность </td>
+        <td>Валюта пополнения </td>
+        <td>Кошелек (номер счета) </td>
+        <td>api_key </td>
+        <td>Адрес обработчика </td>
+        <td>Метод запроса на обработчик </td>
+        <td>Надпись на кнопке</td>
+        <td>Адрес кнопки </td>
+        <td>Описание </td>
+        <td>Редактирование</td>
+        <td>Удаление</td>
+    </tr>
+    {% for CompanyPaymentList in all_payment_object %}
+    <tr>
+        <td>{{ CompanyPaymentList.is_active }}</td>
+        <td>{{ CompanyPaymentList.currency }}</td>
+        <td>{{ CompanyPaymentList.purse }}</td>
+        <td>{{ CompanyPaymentList.api_key }}</td>
+        <td>{{ CompanyPaymentList.handler_method }}</td>
+        <td>{{ CompanyPaymentList.handler_url }}</td>
+        <td>{{ CompanyPaymentList.name }}</td>
+        <td>{{ CompanyPaymentList.description }}</td>
+        <td>{{ CompanyPaymentList.language }}</td>
+        <td><a href="{% url 'payment_list_edit' CompanyPaymentList.id %}">Редактировать</a></td>
+        <td><a href="{% url 'delete_payment' CompanyPaymentList.id %}">Удалить</a></td>
+    </tr>
+    {% endfor %}
+</table>
+</div>
+<a href="{% url 'company_payment' %}">Добавить способ оплаты</a>
+<a href="{% url 'index' %}">На главную</a>
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Лист департамента</title>
+</head>
+<body>
+<div class = post_department_company>
+<table>
+<h1>Лист департамента</h1>
+    <tr>
+        <td>id</td>
+        <td>Название департамента</td>
+        <td>Ранг должности</td>
+        <td>Список прав</td>
+        <td>Редактирование</td>
+        <td>Удаление</td>
+    </tr>
+    {% for company_department_list in all_department_object %}
+    <tr>
+        <td>{{ company_department_list.id }}</td>
+        <td>{{ company_department_list.name }}</td>
+        <td>{{ company_department_list.rank }}</td>
+        <td>{{ company_department_list.permission }}</td>
+        <td><a href="{% url 'department_list_edit' company_department_list.id %}">Редактировать</a></td>
+        <td><a href="{% url 'delete_department' company_department_list.id %}">Удалить</a></td>
+    </tr>
+    {% endfor %}
+</table>
+</div>
+<a href="{% url 'company_department' %}">Добавить департамент</a>
+<a href="{% url 'index' %}">На главную</a>
+</body>
+</html>

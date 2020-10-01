@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Лист сотрудников</title>
+</head>
+<body>
+<div class = post_department_company>
+<table>
+<h1>Лист сотрудников</h1>
+    <tr>
+        <td>Компания </td>
+        <td>Активность </td>
+        <td>Владелец </td>
+        <td>Логин </td>
+        <td>Електронная почта </td>
+        <td>Дата регистрации </td>
+        <td>Дата последней авторизации </td>
+        <td>Язык </td>
+        <td>Имя </td>
+        <td>Фамилия </td>
+        <td>Паспорт </td>
+        <td>Номер телефона </td>
+        <td>Должность в компании </td>
+        <td>Права доступа </td>
+        <td>Редактирование</td>
+        <td>Удаление</td>
+    </tr>
+    {% for CompanyEmployerList in all_employer_object %}
+    <tr>
+        <td>{{ CompanyEmployerList.company }}</td>
+        <td>{{ CompanyEmployerList.is_active }}</td>
+        <td>{{ CompanyEmployerList.is_owner }}</td>
+        <td>{{ CompanyEmployerList.username }}</td>
+        <td>{{ CompanyEmployerList.email }}</td>
+        <td>{{ CompanyEmployerList.date_joined }}</td>
+        <td>{{ CompanyEmployerList.last_login }}</td>
+        <td>{{ CompanyEmployerList.language }}</td>
+        <td>{{ CompanyEmployerList.first_name }}</td>
+        <td>{{ CompanyEmployerList.last_name }}</td>
+        <td>{{ CompanyEmployerList.passport }}</td>
+        <td>{{ CompanyEmployerList.phone_number }}</td>
+        <td>{{ CompanyEmployerList.department }}</td>
+        <td>{{ CompanyEmployerList.permission }}</td>
+        <td><a href="{% url 'employer_list_edit' CompanyEmployerList.id %}">Редактировать</a></td>
+        <td><a href="{% url 'delete_employer' CompanyEmployerList.id %}">Удалить</a></td>
+    </tr>
+    {% endfor %}
+</table>
+</div>
+<a href="{% url 'company_employer' %}">Добавить сотрудника</a>
+<a href="{% url 'index' %}">На главную</a>
+</body>
+</html>

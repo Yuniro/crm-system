@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Лист транзакции</title>
+</head>
+<body>
+<div class = post_department_company>
+<table>
+<h1>Лист транзакций</h1>
+    <tr>
+        <td>Платежная система</td>
+        <td>Компания</td>
+        <td>Клиент</td>
+        <td>Дата создания платежа</td>
+        <td>Кем создан</td>
+        <td>Подтверждение платежа</td>
+        <td>Сумма пополнения (списания)</td>
+        <td>Валюта</td>
+        <td>Комментарий</td>
+        <td>Список данных</td>
+        <td>Редактировать</td>
+        <td>Удаление</td>
+    </tr>
+    {% for CompanyTransactionList in all_transaction_object %}
+    <tr>
+        <td>{{ CompanyTransactionList.payment }}</td>
+        <td>{{ CompanyTransactionList.company }}</td>
+        <td>{{ CompanyTransactionList.client }}</td>
+        <td>{{ CompanyTransactionList.created_date }}</td>
+        <td>{{ CompanyTransactionList.created_by }}</td>
+        <td>{{ CompanyTransactionList.is_completed }}</td>
+        <td>{{ CompanyTransactionList.completed_date }}</td>
+        <td>{{ CompanyTransactionList.amount }}</td>
+        <td>{{ CompanyTransactionList.currency }}</td>
+        <td>{{ CompanyTransactionList.comment }}</td>
+        <td>{{ CompanyTransactionList.data }}</td>
+        <td><a href="{% url 'permission_list_edit' CompanyTransactionList.id %}">Редактировать</a></td>
+        <td><a href="{% url 'delete_permission' CompanyTransactionList.id%}">Удалить</a></td>
+    </tr>
+    {% endfor %}
+</table>
+</div>
+<a href="{% url 'company_transaction' %}">Добавить транзакцию</a>
+<a href="{% url 'index' %}">На главную</a>
+</body>
+</html>

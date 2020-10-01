@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Департамент</title>
+</head>
+<body>
+<table>
+<h1>Зарегистрированый департамент</h1>
+    <tr>
+        <td>id</td>
+        <td>Название департамента</td>
+        <td>Ранг должности</td>
+        <td>Список прав</td>
+        <td>Редактирование</td>
+        <td>Удаление</td>
+    </tr>
+    <tr>
+    <td>{{ department_add.id }}</td>
+    <td>{{ department_add.name }}</td>
+    <td>{{ department_add.rank }}</td>
+    <td>{{ department_add.permission }}</td>
+    <td><a href="{% url 'department_list_edit' pk %}">Редактировать</a> </td>
+    <td><a href="{% url 'delete_department' pk %}">Удалить</a> </td>
+    </tr>
+</table>
+<a href="{% url 'company_department_list' %}">Вернутся к листу</a>
+</body>
+</html>

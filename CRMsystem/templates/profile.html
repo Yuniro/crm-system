@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Профиль</title>
+</head>
+<body>
+<h1>Профиль</h1>
+<ul>
+    <li>Логин: {{ profiles.username }}</li>
+    {% if profiles.is_confirm %}
+    <li>Електронная почта: {{ profiles.email }}</li>
+    {% else %}
+        <form action="{% url 'post_email' pk%}" method="post">
+        <li>Електронная почта: {{ profiles.email }}
+            {% if not profiles.email %}
+                <p>Вы не ввели свой email</p>
+                {% else %}
+        <p>Ваш e-mail не подтвержден.</p>
+        <p><input type="submit" value="Подтвердить"></p>
+        {% endif %}
+        </li>
+        {% csrf_token %}
+    </form>
+    {% endif %}
+    <li>Имя: {{ profiles.first_name }}</li>
+    <li>Фамилия: {{ profiles.last_name }}</li>
+    <li><a href="{% url 'form_registration' pk %}">Редактировать</a></li>
+    <li><a href="{% url 'index' %}">На главную</a></li>
+</ul>
+</body>
+</html>

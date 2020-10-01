@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Права доступа</title>
+</head>
+<body>
+<h1>Лист транзакций</h1>
+<table>
+    <tr>
+        <td>Платежная система</td>
+        <td>Компания</td>
+        <td>Клиент</td>
+        <td>Дата создания платежа</td>
+        <td>Кем создан</td>
+        <td>Подтверждение платежа</td>
+        <td>Сумма пополнения (списания)</td>
+        <td>Валюта</td>
+        <td>Комментарий</td>
+        <td>Список данных</td>
+        <td>Редактировать</td>
+        <td>Удаление</td>
+    </tr>
+    <tr>
+        <td>{{ transaction_add.payment }}</td>
+        <td>{{ transaction_add.company }}</td>
+        <td>{{ transaction_add.client }}</td>
+        <td>{{ transaction_add.created_date }}</td>
+        <td>{{ transaction_add.created_by }}</td>
+        <td>{{ transaction_add.is_completed }}</td>
+        <td>{{ transaction_add.completed_date }}</td>
+        <td>{{ transaction_add.amount }}</td>
+        <td>{{ transaction_add.currency }}</td>
+        <td>{{ transaction_add.comment }}</td>
+        <td>{{ transaction_add.data }}</td>
+        <td><a href="{% url 'transaction_list_edit' transaction_add.id %}">Редактировать</a></td>
+        <td><a href="{% url 'delete_transaction' transaction_add.id %}">Удалить</a></td>
+    </tr>
+</table>
+<a href="{% url 'company_transaction_list' %}">Вернутся к листу</a>
+</body>
+</html>

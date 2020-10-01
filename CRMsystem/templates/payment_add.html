@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Способ оплаты</title>
+</head>
+<body>
+<h1>Зарегистрированый способ оплаты</h1>
+<table>
+    <tr><td>Актиквность </td>
+        <td>Валюта пополнения </td>
+        <td>Кошелек (номер счета) </td>
+        <td>api_key </td>
+        <td>Адрес обработчика </td>
+        <td>Метод запроса на обработчик </td>
+        <td>Надпись на кнопке</td>
+        <td>Адрес кнопки </td>
+        <td>Описание </td>
+        <td>Редактирование</td>
+        <td>Удаление</td>
+    </tr>
+    <tr>
+        <td>{{ payment_add.is_active }}</td>
+        <td>{{ payment_add.currency }}</td>
+        <td>{{ payment_add.purse }}</td>
+        <td>{{ payment_add.api_key }}</td>
+        <td>{{ payment_add.handler_method }}</td>
+        <td>{{ payment_add.handler_url }}</td>
+        <td>{{ payment_add.name }}</td>
+        <td>{{ payment_add.description }}</td>
+        <td>{{ payment_add.language }}</td>
+        <td><a href="{% url 'payment_list_edit' payment_add.id %}">Редактировать</a></td>
+        <td><a href="/{% url 'delete_payment' payment_add.id%} ">Удалить</a></td>
+    </tr>
+</table>
+<a href="{% url 'company_payment_list' %}">Вернутся к листу</a>
+</body>
+</html>
